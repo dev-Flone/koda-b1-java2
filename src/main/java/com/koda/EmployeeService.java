@@ -8,10 +8,21 @@ public class EmployeeService {
     }
 
     public void showEmployee() {
-        employeeData.showEmployee();
+        System.out.println("Employee ID: " + employeeData.getEmployeeId());
+        System.out.println("Name: " + employeeData.getEmployeeName());
+        System.out.println("Position: " + employeeData.getPosition());
+        System.out.println("Department: " + employeeData.getDepartment());
+        System.out.println("Salary: Rp. " + employeeData.getSalary());
+        System.out.println();
+
     }
 
     public void giveRaise(int amount) {
-        employeeData.increaseSalary(amount);
+        try {
+            employeeData.increaseSalary(amount);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        System.out.println("Current Salary: Rp. " + employeeData.getSalary());
     }
 }

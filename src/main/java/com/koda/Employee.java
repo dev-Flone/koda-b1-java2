@@ -1,6 +1,6 @@
 package com.koda;
 
-public class Employee {
+public abstract class Employee {
     private String employeeId;
     private String name;
     private String position;
@@ -8,6 +8,9 @@ public class Employee {
     private int salary;
 
     public Employee(String employeeId, String name, String position, String department, int salary) {
+        if (salary < 0) {
+            System.out.println("Gaji tidak boleh negatif");
+        }
         this.employeeId = employeeId;
         this.name = name;
         this.position = position;
@@ -15,28 +18,23 @@ public class Employee {
         this.salary = salary;
     }
 
-    public void showEmployee() {
+    public void employeeData() {
         System.out.println("Employee ID: " + getEmployeeId());
         System.out.println("Name: " + getEmployeeName());
         System.out.println("Position: " + getPosition());
         System.out.println("Department: " + getDepartment());
         System.out.println("Salary: Rp." + getSalary());
+
     }
 
-    public void increaseSalary(int amount) {
+    protected void addSalary(int amount) {
         if (amount <= 0) {
-            System.out.println("\n");
-            System.out.println("Salary Increase: Rp. " + amount);
-            System.out.println("Error: Kenaikan gaji harus lebih dari 0");
-            System.out.println("Current Salary: Rp. " + getSalary());
-        } else {
-            System.out.println("\n");
-            System.out.println("Salary Increase: Rp. " + amount);
-            salary += amount;
-            System.out.println("Current Salary: Rp. " + getSalary());
+            System.out.println("Gaji harus lebih dari 0");
         }
-        ;
+        salary += amount;
     }
+
+    public abstract void increaseSalary(int amount);
 
     public String getEmployeeId() {
         return employeeId;
