@@ -21,10 +21,9 @@ public abstract class Employee {
     public void employeeData() {
         System.out.println("Employee ID: " + getEmployeeId());
         System.out.println("Name: " + getEmployeeName());
-        System.out.println("Position: " + getPosition());
-        System.out.println("Department: " + getDepartment());
-        System.out.println("Salary: Rp." + getSalary());
-
+        System.out.println("Position: " + getEmployeePosition());
+        System.out.println("Department: " + getEmployeeDepartment());
+        System.out.println("Salary: Rp." + getEmployeeSalary());
     }
 
     protected void addSalary(int amount) {
@@ -44,15 +43,15 @@ public abstract class Employee {
         return name;
     }
 
-    public String getPosition() {
+    public String getEmployeePosition() {
         return position;
     }
 
-    public String getDepartment() {
+    public String getEmployeeDepartment() {
         return department;
     }
 
-    public int getSalary() {
+    public int getEmployeeSalary() {
         return salary;
     }
 
