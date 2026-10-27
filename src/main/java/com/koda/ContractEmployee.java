@@ -11,18 +11,16 @@ public class ContractEmployee extends Employee {
     public void increaseSalary(int amount) {
         if (amount <= 0) {
             System.out.println("Salary increase: Rp. " + amount);
-            System.out.println("Kenaikan gaji harus lebih dari 0");
-            return;
+            throw new IllegalArgumentException("Kenaikan gaji harus lebih dari 0");
         }
         if (amount > maxSalaryIncrease) {
             System.out.println("Salary increase: Rp. " + amount);
-            System.out.println("Kenaikan gaji maksimal Rp. " + maxSalaryIncrease);
-            return;
+            throw new IllegalArgumentException("Kenaikan gaji maksimal Rp. " + maxSalaryIncrease);
         }
 
         addSalary(amount);
 
-        System.out.println("Salary increase: Rp. " + amount);
+        System.out.println("Salary increase: Rp." + amount);
 
     }
 }
