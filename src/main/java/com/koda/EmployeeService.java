@@ -18,11 +18,7 @@ public class EmployeeService {
     }
 
     public void giveRaise(int amount) {
-        try {
-            employeeData.increaseSalary(amount);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Error: " + e.getMessage());
-        }
+        employeeData.increaseSalary(amount);
         System.out.println("Current Salary: Rp. " + employeeData.getSalary());
     }
 }
